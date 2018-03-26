@@ -1,9 +1,13 @@
 'use strict';
 
+const address = require('./config');
 const logger = require('./lib/logger/logger')();
+const onDataMethod = require('./lib/onDataMethod/onDataMethod');
+
 
 const socketServer = require('./lib/socketServer/socketServer');
-socketServer();
+
+socketServer(address.host, address.port, onDataMethod)
 
 /*
 setInterval(() => {
